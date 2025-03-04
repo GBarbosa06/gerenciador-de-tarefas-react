@@ -5,9 +5,8 @@ function Tasks(props) {
             {
                 props.tasks.map((task) => (
                     <li key={task.id} className="flex gap-2">
-                        <button onClick={() => props.onTaskClick(task.id)} className="w-full text-left bg-slate-400 text-white p-2 rounded-md">
+                        <button onClick={() => props.onTaskClick(task.id)} className={`w-full text-left bg-slate-400 text-white p-2 rounded-md ${task.isCompleted && "line-through"}`}>
                             {task.title}
-                            {task.isCompleted ? "Complete" : "Incomplete"}
                         </button>
                         <button className="bg-slate-400 p-2 rounded-md text-white">
                             <ChevronRightIcon />
