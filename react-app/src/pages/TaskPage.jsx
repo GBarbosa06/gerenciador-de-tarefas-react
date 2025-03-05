@@ -14,7 +14,7 @@ function TaskPage() {
     <div className="w-screen h-screen bg-slate-500 p-6">
 
         <div className="flex justify-center relative mb-6">
-        <button onClick={() => navigate(-1)} className="absolute left-0 text-white bg-slate-600 w-7 h-7 rounded-full">
+        <button onClick={() => navigate('/')} className="absolute left-0 text-white bg-slate-600 w-7 h-7 rounded-full">
             <ChevronLeftIcon />
         </button>
             <h1 className="text-3xl text-slate-100 font-bold text-center">Detalhes da Tarefa</h1>
