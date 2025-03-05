@@ -1,6 +1,7 @@
 import Tasks from "./components/tasks";
 import AddTask from "./components/AddTask";
 import { useState } from "react";
+import { v4 } from "uuid";
 
 
 function App(){
@@ -8,22 +9,32 @@ function App(){
     {
       id: 1,
       title: "Estudar React",
-      description: "Descrição generica 1",
+      description: "Descrição genérica 1",
       isCompleted: true,
     },
     {
       id: 2,
       title: "Fazer compra",
-      description: "Descrição generica 2",
+      description: "Descrição genérica 2",
       isCompleted: true,
     },
     {
       id: 3,
       title: "Ler livros",
-      description: "Descrição generica 3",
+      description: "Descrição genérica 3",
       isCompleted: false,
     }
   ]);
+
+  function onAddTaskSubmit(title, description) {
+    const newTask = {
+      id: v4(),
+      title,
+      description,
+      isCompleted: false,
+    }
+    setTasks([...tasks, newTask])
+  }
 
   function onTaskClick(taskId) {
     setTasks(
@@ -41,10 +52,11 @@ function App(){
       <div className="w-[500px] ">
         <h1 className="text-3xl text-slate-100 font-bold text-center">Gerenciador de Tarefas</h1>
 
-      <AddTask/>
+      <div className="flex flex-col gap-3 mt-2">
+        <AddTask onAddTaskSubmit={onAddTaskSubmit} />
+        <Tasks tasks={tasks} onTaskClick={onTaskClick} onTrashClick={onTrashClick} />
+      </div>
 
-      <Tasks tasks={tasks} onTaskClick={onTaskClick} onTrashClick={onTrashClick} />
-      
       </div>
     </div>
   );
