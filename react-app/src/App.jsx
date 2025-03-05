@@ -1,30 +1,16 @@
 import Tasks from "./components/tasks";
 import AddTask from "./components/AddTask";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 } from "uuid";
 
 
 function App(){
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "Estudar React",
-      description: "Descrição genérica 1",
-      isCompleted: true,
-    },
-    {
-      id: 2,
-      title: "Fazer compra",
-      description: "Descrição genérica 2",
-      isCompleted: true,
-    },
-    {
-      id: 3,
-      title: "Ler livros",
-      description: "Descrição genérica 3",
-      isCompleted: false,
-    }
-  ]);
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks])
+  //executa a função sempre que um valor dentro da lista é alterado
 
   function onAddTaskSubmit(title, description) {
     const newTask = {
