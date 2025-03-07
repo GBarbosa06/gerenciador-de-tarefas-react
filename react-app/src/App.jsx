@@ -3,7 +3,7 @@ import AddTask from "./components/AddTask";
 import { useState, useEffect } from "react";
 import { v4 } from "uuid";
 
-
+// ! adicionar prioridades
 function App(){
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
 
