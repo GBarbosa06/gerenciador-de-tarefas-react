@@ -20,7 +20,8 @@ function AddTask({onAddTaskSubmit}){
                 }
                 onAddTaskSubmit(title, description);
                 setTitle("");
-                setDescription("");            }} className="bg-slate-500 text-white px-4 py-2 rounded-md font-medium">Adicionar</button>
+                setDescription("");
+                }} className="bg-slate-500 text-white px-4 py-2 rounded-md font-medium">Adicionar</button>
         </div>
     );
 }
