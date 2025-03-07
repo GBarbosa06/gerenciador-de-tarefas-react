@@ -12,6 +12,15 @@ function App(){
   }, [tasks])
   //executa a função sempre que um valor dentro da lista é alterado
 
+  useEffect(() => {
+    async function fetchTask(){
+      const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10');
+      const data = await response.json();
+      setTasks(data)
+    }
+    fetchTask();
+  }, []) // quando se passa uma lista vazia, o useEffect só carrega uma vez, na inicialização da aplicação 
+
   function onAddTaskSubmit(title, description) {
     const newTask = {
       id: v4(),
