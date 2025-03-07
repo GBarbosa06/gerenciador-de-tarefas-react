@@ -2,6 +2,7 @@ import Tasks from "./components/tasks";
 import AddTask from "./components/AddTask";
 import { useState, useEffect } from "react";
 import { v4 } from "uuid";
+import Title from "./components/Title";
 
 // ! adicionar prioridades
 function App(){
@@ -45,7 +46,7 @@ function App(){
   return(
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
       <div className="w-[500px] ">
-        <h1 className="text-3xl text-slate-100 font-bold text-center">Gerenciador de Tarefas</h1>
+        <Title>Gerenciador de Tarefas</Title>
 
       <div className="flex flex-col gap-3 mt-2">
         <AddTask onAddTaskSubmit={onAddTaskSubmit} />
