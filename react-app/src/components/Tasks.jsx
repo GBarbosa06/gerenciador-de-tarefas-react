@@ -1,10 +1,10 @@
 import {ChevronRightIcon, TrashIcon} from "lucide-react"
 import { useNavigate } from "react-router-dom";
 function Tasks({tasks, onTaskClick, onTrashClick}) {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); // ? usado para mudar de páginas, cuja as páginas e paths definidos no index.html
 
     function onSeeDetailsClick(task){
-        const query = new URLSearchParams();
+        const query = new URLSearchParams(); // ? query para evitar erros de digitação na url
         query.set("title", task.title);
         query.set("description", task.description);
         navigate(`/task?${query.toString()}`);
