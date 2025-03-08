@@ -13,14 +13,14 @@ function App(){
   }, [tasks])
   //executa a função sempre que um valor dentro da lista é alterado
 
-/*   useEffect(() => { //representa um banco de dados real, assim seria se passasse por uma API
+    useEffect(() => { //representa um banco de dados real, assim seria se passasse por uma API
     async function fetchTask(){
       const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10');
       const data = await response.json();
-      setTasks(data)
+      //setTasks(data)
     }
     fetchTask();
-  }, []) // quando se passa uma lista vazia, o useEffect só carrega uma vez, na inicialização da aplicação  */
+  }, []) // quando se passa uma lista vazia, o useEffect só carrega uma vez, na inicialização da aplicação
 
   function onAddTaskSubmit(title, description) {
     const newTask = {
