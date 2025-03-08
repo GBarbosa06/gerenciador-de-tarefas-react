@@ -17,9 +17,9 @@ function App(){
     async function fetchTask(){
       const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10');
       const data = await response.json();
-      //setTasks(data)
+      setTasks(data)
     }
-    fetchTask();
+    //fetchTask();
   }, []) // quando se passa uma lista vazia, o useEffect só carrega uma vez, na inicialização da aplicação
 
   function onAddTaskSubmit(title, description) {
@@ -44,17 +44,15 @@ function App(){
   }
 
   return(
-    <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
-      <div className="w-[500px] ">
-        <Title>Gerenciador de Tarefas</Title>
-
-      <div className="flex flex-col gap-3 mt-2">
-        <AddTask onAddTaskSubmit={onAddTaskSubmit} />
-        <Tasks tasks={tasks} onTaskClick={onTaskClick} onTrashClick={onTrashClick} />
+      <div className="w-screen min-h-screen bg-slate-500 flex justify-center p-6">
+        <div className="w-[500px] ">
+          <Title>Gerenciador de Tarefas</Title>
+        <div className="flex flex-col gap-3 mt-2"> {/* div dos componentes */}
+          <AddTask onAddTaskSubmit={onAddTaskSubmit} />
+          <Tasks tasks={tasks} onTaskClick={onTaskClick} onTrashClick={onTrashClick} />
+        </div>
+        </div>
       </div>
-
-      </div>
-    </div>
   );
 }
 
